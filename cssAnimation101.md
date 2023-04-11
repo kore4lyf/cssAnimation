@@ -1,5 +1,15 @@
 # CSS Animation 101 - by Donovan Hutchinson
 
+## Todo
+- [Save Button Wiggle](http://codepen.io/donovanh/pen/KwEQdQs)
+- [Animating List Items](https://cssanimation.rocks/list-items/)
+- [Portal animation](http://hop.ie/portal/)
+- [Animated transition from A to B](http://codepen.io/donovanh/pen/RNdxqw)
+-  [Animated button](http://codepen.io/donovanh/pen/MYQdZd)
+-  [More transitions](http://codepen.io/suez/pen/XJGOyL)
+-  [Mac Plus created using CSS](http://codepen.io/donovanh/full/HGqjp/)
+
+
 ## Chapter 1 - Welcome
 ### Hello, I’m Donovan
 ### Book structure
