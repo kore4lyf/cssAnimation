@@ -52,3 +52,169 @@ Lastly, take a look at sites like **Hover States** and **Little Big Details** an
 ### Local development
 ### In summary
 ### Homework
+
+
+
+## Chapter 4 - Transitions
+### Transitions
+- One way CSS lets us control animation in the browser with the transition property. In browser terms, a transition is an animation from one state to another.
+- When we use a transition on an element we tell the browser that we want it to interpolate, or automatically calculate, the change between states.
+
+### Transition properties
+### In summary
+- A transition is the change from one state to another. For example, when hovering
+over an element, its style might change. Transitions allow the change to become
+a smooth animation.
+### Homework 
+
+
+
+## Chapter 5 - Animations
+### Animation in the browser 
+- While transitions are all about smoothing the change from state A to state B, animations are a way to describe multiple steps.
+- Animations are useful for more complex movement in the browser. In the above example, there are 3 states (A, B and C). A transition would only go from A to C while an animation allows us to specify what step B looks like and make sure the animation follows all three steps.
+- Animations also behave a little differently. They can begin automatically. While
+a transition might require adding a class or a change of state such as hovering,
+animations can start when the page loads
+
+
+
+### Examples
+### Transitions vs Animations
+- Transitions are when the browser animates from one state to another (A to B).
+They’re usually triggered by an action such hovering over an element, or adding
+or removing a class using JavaScript.
+Animations are more involved, and let you create sequences of animations with
+as many key
+### Homework
+
+
+
+## Chapter 6 - Transitions in action
+### Transitions
+### Example: Button transition
+### Prefixes and browser compatibility
+### Homework
+
+
+
+## Chapter 7 - Transitions properties
+### Shorthand vs Longhand
+### Things transitions don’t work on
+### Homework
+
+
+
+## Chapter 8 - Timing functions 30
+### Linear
+### Ease-in
+### Ease-out
+### Ease-in-out
+### Cubic-bezier
+### Steps
+### More examples
+### Homework
+
+
+
+## Chapter 9 - Multiple transitions
+### Example 1: Fancy button
+### Example 2: Background reveal
+### Multiple transitions on a single element
+### Homework
+
+
+
+## Chapter 10 - Transitions and JavaScript
+### Add or remove classes
+### Controlling transitions with JavaScript
+### Let’s recap
+### Homework
+
+
+
+## Chapter 11 -  Animations in action
+### A symbiotic relationship
+### The animation property
+### Keyframes
+### Prefixes
+### Homework
+
+
+
+## Chapter 12 -  Animation properties
+### Using timing functions within keyframes
+### Homework
+
+
+
+## Chapter 13 -  Keyframes in action
+### Things to look out for
+### Example: Save button wiggle effect
+### Homework
+
+
+
+## Chapter 14 -  Multiple animations
+### Traffic lights
+### Further reading
+### Homework
+
+
+
+## Chapter 15 -  Animation recap
+### Homework challenge: Traffic lights
+### Recap: Animations
+### Putting them together
+### Homework
+
+
+
+## Chapter 16 -  Storytelling
+### Heroes
+### Example: Scrolling background
+### Part 1: Background animation
+### Part 2: Adding the hover transition
+### Summary
+### Homework
+
+
+
+## Chapter 17 -  Star Wars
+### Transform: Not an animation property
+### Transform: scale(), translateZ() and rotateY()
+### SVG, HTML and CSS
+### Animating the Star and Wars
+### Making it 3D 
+### The Force Awakens
+### Homework
+
+
+
+## Chapter 18 -  Revealing content on scroll
+### Wowjs
+### Using Wowjs
+### Adding “wow” classes
+### Hiding and showing
+### Using Animatecss
+### Using Modernize
+### Homework
+
+
+
+## Chapter 19 -  Accessibility
+### Make sure content is accessible
+### Give control
+### Allow for alternate inputs
+### Confusion
+### Don’t make me sick
+### Accessibility is for everyone’s benefit
+### Homework
+
+
+
+## Chapter 20 -  Now you know CSS animation!
+### CSS Animation cheatsheet
+### Resources to bookmark 
+### Other tools
+### Next steps
