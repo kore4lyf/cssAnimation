@@ -46,3 +46,9 @@ Try not to go crazy and animate all the things. Look for ways subtle animation m
 Lastly, take a look at sites like **Hover States** and **Little Big Details** and **Dribbble**. These sorts of sites help if you’re ever stuck for ideas.
 
 
+
+## Chapter 3 - Creative environments
+### In the browse
+### Local development
+### In summary
+### Homework
