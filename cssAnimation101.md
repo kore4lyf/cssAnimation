@@ -12,6 +12,7 @@
 -  [Shiny Effect](https://cssanimation.rocks/pseudo-elements/)
 -  [Fancy Button](http://codepen.io/donovanh/pen/YPMGpJ)
 -  [Cat Hover card](http://codepen.io/donovanh/pen/LEvjJg)
+-  [Change Background](http://codepen.io/donovanh/pen/WbqNwd?editors=110)
 
 
 
@@ -253,8 +254,9 @@ Next we’ll see what happens when we apply a single transition to an element wi
 We can achieve this by combining multiple transitions into a single declaration.
 Multiple transitions are separated by commas.
 For example:
+```css
 transition: background 1s ease-out, border 0.5s linear;
-
+```
 
 
 ### Homework
@@ -262,8 +264,36 @@ transition: background 1s ease-out, border 0.5s linear;
 
 
 ## Chapter 10 - Transitions and JavaScript
+ we’ve been using the transition property in CSS to animate between
+two states, a non-hover and a hover (or focus) state.
+These transitions have required hovering over the element. This isn’t the only way
+we can trigger animations, so today we’ll cover two ways we can use JavaScript
+to achieve the same result
+
+
 ### Add or remove classes
+Since the power of transitions is to animate between two states, we can create those states as separate classes. Then we add or remove these classes using JavaScript (e.g. hidding an element when a button is clicked).
+
+
 ### Controlling transitions with JavaScript
+We can go further than adding or removing classes. Using JavaScript we can set
+the CSS properties directly like so:
+element.style.transition = 'opacity 1s ease-out';
+In this case, “element” is an element we’ve selected. For example, if an element
+has the ID “js-show”, you could apply a transition to it using getElementById:
+```css
+document.getElementById('js-show').style.transition = 'opacity 1s ease-out';
+```
+When we do this, we must remember to include vendor prefixes too. The above
+would need to be written:
+```css
+document.getElementById('js-show').style.webkitTransition = 'opacity 1s ease-out';
+document.getElementById('js-show').style.transition = 'opacity 1s ease-out';
+```
+Here the webkitTransition applies to any browsers that would otherwise use
+the -webkit- prefix in CSS.
+
+
 ### Let’s recap
 ### Homework
 
@@ -271,15 +301,109 @@ transition: background 1s ease-out, border 0.5s linear;
 
 ## Chapter 11 -  Animations in action
 ### A symbiotic relationship
+The animation property is applied to an element just like a transition. It also needs a second part, called keyframes.
+```css
+.element {
+animation: ...
+}
+@keyframes animation-name {
+/* Keyframes go here */
+}
+```
+
+One benefit of having the keyframes defined separately is that it allows us to create animations that can be reused multiple times.
+
+
 ### The animation property
+. An animation
+could be written as the following shorthand:
+```css
+animation: change-background 4s linear infinite;
+```
+Written as individual properties it would look like:
+```css
+animation-name: change-background;
+animation-duration: 4s;
+animation-timing-function: linear;
+animation-repeat: infinite;
+```
+Where a transition takes a property, such as “background” or “all”
+
+
 ### Keyframes
+A set of keyframes in CSS is a series of stops along the way through an animation. Each “keyframe” is a written as a percentage.
+
+“Start at 0% of the way through with a blue background, then by 50% through be orange, and at 100% have a green background”
+```css
+@keyframes change-background {
+0% {
+background: blue;
+}
+50% {
+background: orange;
+}
+100% {
+    background: green;
+}
+}
+```
+
+
 ### Prefixes
+While this is becomeing less important, you may want to use the -webkit- prefix on the animation property. I won’t add it to examples, but it will be needed for your animations to work in browsers such as Safari.
+In CodePen you can use the “Autoprefixer” option within the CSS settings. For local development, I use the Gulp version of Autoprefixer. Prefix Free is a decent alternative also.
+
+
 ### Homework
 
 
 
 ## Chapter 12 -  Animation properties
+- **animation-delay** - Similar to transition-delay, we can use this property to make the animation wait before starting. This can be particularly useful in situations where there are multiple animations taking place.
+  
+- **animation-direction** - Animations normally begin at 0% and finish at 100%. Using animation-direction we use the values normal, reverse, alternate and alternate-reverse to control the direction.
+
+- **animation-duration** - This is the length of the animation. Similar to transition-duration, this takes a value such as 1s for one second or 200ms for two hundred milliseconds.
+  
+- **animation-fill-mode** - By default, an animation will play and then the element returns to its normal state. Using animation-fill-mode we can have the animation “stick” at either the end or beginning state.
+Using the value forwards tells the animation to finish and stay on the last keyframe. The value backwards returns to the first keyframe when the animation finishes.
+An example of this is the bouncer animation on Hop.ie. The animation plays once and finishes on the last frame. This is using the value forwards.
+- **animation-iteration-count** -This is the number of times the animation plays. By default it will play once.
+You can specify a number, or “infinite” to have it loop forever.
+- **animation-name** - The animation-name refers to the keyframes associated with the animation. For example, if the animation-name is set to “foo”, it would use a set of keyframes like:
+```css
+@keyframes foo {
+...
+}
+```
+- **animation-play-state** - If you ever need to pause or resume an animation, this property lets you do so.
+It takes the values of running or paused, with the default being running. One
+idea might be to set this value on an animation using JavaScript.
+- **animation-timing-function** - This takes the same values the timing function property in transitions, but
+behaves a little differently. While a timing function, such as ease-out applies to the entire transition, the timing function of an animation applies between each keyframe.
+This means that the following keyframes would see the animation starting fast and slowing toward 50%, then picking up fast and slowing down before 100%.
+
+
+
+
 ### Using timing functions within keyframes
+When you specify a timing function for an animation, the timing function applies to each keyframe of the animation.
+This means that if you were to specify four keyframes, the timing function would apply to each. An ease-out function would slow down as it approached each keyframe.
+For that reason we would usually define the timing function for animations as linear, and control the pacing on a per-keyframe basis:
+```css
+@keyframes my-animation {
+0% {
+...
+animation-timing-function: linear;
+}
+50% {
+...
+animation-timing-function: ease-out;
+}
+}
+```
+
+
 ### Homework
 
 
