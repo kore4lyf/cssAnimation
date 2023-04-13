@@ -9,6 +9,7 @@
 -  [More transitions](http://codepen.io/suez/pen/XJGOyL)
 -  [Mac Plus created using CSS](http://codepen.io/donovanh/full/HGqjp/)
 -  [Button hover effect](http://codepen.io/donovanh/pen/MYQdZd)
+-  [Shiny Effect](https://cssanimation.rocks/pseudo-elements/)
 
 
 ## Chapter 1 - Welcome
@@ -155,24 +156,46 @@ transition: ...;
 When writing CSS, we can often summarise multiple properties into one in a
 shorthand property. For example, padding written as shorthand might look like
 this:
+```css
 padding: 10px 20px 15px 25px;
+```
 This would be the equivalent of:
+```css
 padding-top: 10px;
 padding-right: 20px;
 padding-bottom: 15px;
 padding-left: 25px;
+```
 In the same way, we can write a transition as shorthand too:
+```css
 transition: all 0.5s 1s linear;
+```
 In this case, the shorthand corresponds to:
+```css
 transition: [property] [duration] [delay] [timing-function];
+```
 Each of these properties can be written individually:
+```css
 transition-property: all;
 transition-duration: 0.5s;
 transition-delay: 1s;
 transition-timing-function: linear;
+```
 
 
 ### Things transitions don’t work on
+While you can use transitions on positioning, size, colour, border, background-
+position and many others, there are some that cannot be transitioned. The
+font-family cannot be transitioned, as this would mean trying to generate frames
+between two very different font images.
+Background images created with CSS, such as generated gradients, cannot
+have their properties animated. This would mean the browser recreating the
+background image with each frame of animation and so is not supported.
+However you can animate things like opacity and background position. By
+moving background images around or hiding them you can create interesting
+effects.
+
+
 ### Homework
 
 
