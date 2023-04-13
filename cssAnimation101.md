@@ -11,6 +11,8 @@
 -  [Button hover effect](http://codepen.io/donovanh/pen/MYQdZd)
 -  [Shiny Effect](https://cssanimation.rocks/pseudo-elements/)
 -  [Fancy Button](http://codepen.io/donovanh/pen/YPMGpJ)
+-  [Cat Hover card](http://codepen.io/donovanh/pen/LEvjJg)
+
 
 
 ## Chapter 1 - Welcome
@@ -243,9 +245,18 @@ transition: all 2s steps(10, end);
 
 
 ## Chapter 9 - Multiple transitions
+Next we’ll see what happens when we apply a single transition to an element with multiple changes, and how to use multiple transitions together to subtly improve our animation.
+
 ### Example 1: Fancy button
 ### Example 2: Background reveal
 ### Multiple transitions on a single element
+We can achieve this by combining multiple transitions into a single declaration.
+Multiple transitions are separated by commas.
+For example:
+transition: background 1s ease-out, border 0.5s linear;
+
+
+
 ### Homework
 
 
