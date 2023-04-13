@@ -8,6 +8,7 @@
 -  [Animated button](http://codepen.io/donovanh/pen/MYQdZd)
 -  [More transitions](http://codepen.io/suez/pen/XJGOyL)
 -  [Mac Plus created using CSS](http://codepen.io/donovanh/full/HGqjp/)
+-  [Button hover effect](http://codepen.io/donovanh/pen/MYQdZd)
 
 
 ## Chapter 1 - Welcome
@@ -102,14 +103,75 @@ as many key
 
 ## Chapter 6 - Transitions in action
 ### Transitions
+Transitions take place in the browser when an element changes from one state to another. The browser draws the frames between each state automatically to create movement.
+
 ### Example: Button transition
+We can write a transition in CSS like this:
+```css
+transition: background 0.5s linear;
+```
+
+The above property might cause a button’s background to change when hovered
+over:
+```css
+button {
+background: white;
+transition: background 0.5s linear;
+}
+button:hover {
+background: green;
+}
+```
+
+The important thing to look for is the any property beginning transition-.
+I’ve written them out long-hand for demonstration like so:
+```css
+transition-property: all;
+transition-duration: 0.4s;
+transition-timing-function: ease-out;
+```
+
+For a fun effect, try changing the transition-timing-function value from
+ease-out to:
+```css
+transition-timing-function: cubic-bezier(.59,-0.26,.33,1.42)
+```
+
 ### Prefixes and browser compatibility
+When I’ve given code examples, I’ve not included vendor prefixes. This is to make the code easier to read, but if you’re using the code in production they are needed.
+I like to use Autoprefixer (this is an option on Codepen: press the settings “cog” icon in the CSS section), and can be run with build tools such as Grunt or Gulp.
+Alternately you can manually write them out like this:
+```css
+-webkit-transition: ...;
+-moz-transition: ...;
+transition: ...;
+```
 ### Homework
 
 
 
 ## Chapter 7 - Transitions properties
 ### Shorthand vs Longhand
+When writing CSS, we can often summarise multiple properties into one in a
+shorthand property. For example, padding written as shorthand might look like
+this:
+padding: 10px 20px 15px 25px;
+This would be the equivalent of:
+padding-top: 10px;
+padding-right: 20px;
+padding-bottom: 15px;
+padding-left: 25px;
+In the same way, we can write a transition as shorthand too:
+transition: all 0.5s 1s linear;
+In this case, the shorthand corresponds to:
+transition: [property] [duration] [delay] [timing-function];
+Each of these properties can be written individually:
+transition-property: all;
+transition-duration: 0.5s;
+transition-delay: 1s;
+transition-timing-function: linear;
+
+
 ### Things transitions don’t work on
 ### Homework
 
