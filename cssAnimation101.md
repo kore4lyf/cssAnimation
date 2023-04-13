@@ -410,7 +410,70 @@ animation-timing-function: ease-out;
 
 ## Chapter 13 -  Keyframes in action
 ### Things to look out for
+The first is an alternate syntax you may see, using the keywords from and to.
+```css
+@keyframes name {
+from {
+...
+}
+to {
+...
+}
+}
+```
+While this is simple an alternate way of writing 0% and 100%, it can be simplerto understand and useful for simple animations.
+You may have noticed that sometimes more than one percentage value is used on the same line. This is a way to have the animation pause for a while, or hold a particular state.
+For example:
+```css
+@keyframes name {
+0%, 20% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+```
+This example will have the element start with an opacity of 0, and stay invisible until 20% through the animation, at which time it will then begin to animate
+toward an opacity of 1.
+
+
+
 ### Example: Save button wiggle effect
+```css
+button {
+animation: wiggle 2s linear infinite;
+}
+```
+
+Next, we plan out what these keyframes are for the “wiggle” animation. Here’s
+the result:
+```css
+@keyframes wiggle {
+0%, 7% {
+transform: rotateZ(0);
+}
+15% {
+transform: rotateZ(-15deg);
+}
+20% {
+transform: rotateZ(10deg);
+}
+25% {
+transform: rotateZ(-10deg);
+}
+30% {
+transform: rotateZ(6deg);
+}
+35% {
+transform: rotateZ(-4deg);
+}
+40%, 100% {
+transform: rotateZ(0);
+}
+}
+```
+
 ### Homework
 
 
