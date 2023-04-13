@@ -10,6 +10,7 @@
 -  [Mac Plus created using CSS](http://codepen.io/donovanh/full/HGqjp/)
 -  [Button hover effect](http://codepen.io/donovanh/pen/MYQdZd)
 -  [Shiny Effect](https://cssanimation.rocks/pseudo-elements/)
+-  [Fancy Button](http://codepen.io/donovanh/pen/YPMGpJ)
 
 
 ## Chapter 1 - Welcome
@@ -94,8 +95,7 @@ animations can start when the page loads
 ### Examples
 ### Transitions vs Animations
 - Transitions are when the browser animates from one state to another (A to B).
-They’re usually triggered by an action such hovering over an element, or adding
-or removing a class using JavaScript.
+They’re usually triggered by an action such hovering over an element, or adding or removing a class using JavaScript.
 Animations are more involved, and let you create sequences of animations with
 as many key
 ### Homework
@@ -153,8 +153,7 @@ transition: ...;
 
 ## Chapter 7 - Transitions properties
 ### Shorthand vs Longhand
-When writing CSS, we can often summarise multiple properties into one in a
-shorthand property. For example, padding written as shorthand might look like
+When writing CSS, we can often summarise multiple properties into one in a shorthand property. For example, padding written as shorthand might look like
 this:
 ```css
 padding: 10px 20px 15px 25px;
@@ -184,29 +183,60 @@ transition-timing-function: linear;
 
 
 ### Things transitions don’t work on
-While you can use transitions on positioning, size, colour, border, background-
-position and many others, there are some that cannot be transitioned. The
-font-family cannot be transitioned, as this would mean trying to generate frames
-between two very different font images.
-Background images created with CSS, such as generated gradients, cannot
-have their properties animated. This would mean the browser recreating the
-background image with each frame of animation and so is not supported.
-However you can animate things like opacity and background position. By
-moving background images around or hiding them you can create interesting
-effects.
+While you can use transitions on positioning, size, colour, border, background-position and many others, there are some that cannot be transitioned. The font-family cannot be transitioned, as this would mean trying to generate frames between two very different font images.
+Background images created with CSS, such as generated gradients, cannot have their properties animated. This would mean the browser recreating the background image with each frame of animation and so is not supported.
+However you can animate things like opacity and background position. By moving background images around or hiding them you can create interesting effects.
 
 
 ### Homework
 
 
 
-## Chapter 8 - Timing functions 30
+## Chapter 8 - Timing functions
+The timing function is a description of the rate at which the speed of the transition changes. Animations look lifeless when they occur at a fixed, linear pace.
+
 ### Linear
+A linear transition moves at a steady rate from beginning to end. Since there’s no curve in the transition, it never accelerates or decelerates. This can be useful if making animations that need a steady movement, like the scenery moving past the background of a train window or a steadily rotating moon.
+
+
 ### Ease-in
+The ease-in timing function begins slowly and accelerates toward the end of the transition. It would be similar to a ball beginning to roll down a hill, finishing
+at the fastest speed at the bottom.
+
+
 ### Ease-out
+Ease-out is the opposite of ease-in. It starts fast and slows down toward the end of the transition. Useful for when something needs to appear as if it was rushing from off-screen and slowing down to stop.
+
+
 ### Ease-in-out
+Ease-in-out is a combination of both the ease-in and ease-out functions. It begins slowly, accelerates through the middle part of the transition, then slows toward the end. It could illustrate a car starting from a standstill, accelerating, then slowing down before stopping. If making a loading animation, something like this can look pretty good.
+
+
 ### Cubic-bezier
+All the timing functions we’ve seen so far are examples of cubic bezier curve.
+This is a curve that describes the “shape” of the timing function.
+In this way, specifying a cubic-bezier timing function is like creating a timing function of our own.
+They consist of 4 values, representing two co-ordinates. A cubic-bezier can look like this:
+transition-timing-function: cubic-bezier(1,-0.49,.13,1.09);
+The two co-ordinates here are (1, -0.49) and (.13, 1.09). On a graph, they look like this:
+Rather than create these by hand, I use cubic-bezier.com. A great way to create some interesting effects.
+
+
+
 ### Steps
+Where most of the timing functions involve curves, the steps function divides the transition into a set of steps and jumps between each.
+The transition divides the duration into 4 discrete jumps (pictured above).
+
+This is useful for sprite animation. For example, a loading spinner or animated video game character. By setting the background position at the beginning of a series of frames, the steps timing function can then be used to jump through each frame and create the appearance of movement.
+To see a good example of this in action, check out the Twitter fave button animation.
+You can also specify whether the transition holds the first frame for the fragment of the duration or whether it holds the final frame. The default is end, as this assumes that the first frame in the sprite is already showing before the animation begins.
+We can specify which applies when setting the steps:
+```css
+transition: all 2s steps(10, start);
+transition: all 2s steps(10, end);
+```
+
+
 ### More examples
 ### Homework
 
