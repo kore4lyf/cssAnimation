@@ -13,8 +13,8 @@
 -  [Fancy Button](http://codepen.io/donovanh/pen/YPMGpJ)
 -  [Cat Hover card](http://codepen.io/donovanh/pen/LEvjJg)
 -  [Change Background](http://codepen.io/donovanh/pen/WbqNwd?editors=110)
-- [Traffic Light](http://codepen.io/donovanh/pen/ogRRdR?editors=010)
-
+- [Traffic Light](https://codepen.io/donovanh/pen/vEqbdw?editors=010)
+- [Principles of animation](https://codepen.io/collection/AxKOdY/)
 
 ## Chapter 1 - Welcome
 ### Hello, I’m Donovan
@@ -379,8 +379,7 @@ You can specify a number, or “infinite” to have it loop forever.
 - **animation-play-state** - If you ever need to pause or resume an animation, this property lets you do so.
 It takes the values of running or paused, with the default being running. One
 idea might be to set this value on an animation using JavaScript.
-- **animation-timing-function** - This takes the same values the timing function property in transitions, but
-behaves a little differently. While a timing function, such as ease-out applies to the entire transition, the timing function of an animation applies between each keyframe.
+- **animation-timing-function** - This takes the same values the timing function property in transitions, but behaves a little differently. While a timing function, such as ease-out applies to the entire transition, the timing function of an animation applies between each keyframe.
 This means that the following keyframes would see the animation starting fast and slowing toward 50%, then picking up fast and slowing down before 100%.
 
 
@@ -552,7 +551,7 @@ background: black;
 ## Chapter 15 -  Animation recap
 ### Homework challenge: Traffic lights
 ### Recap: Animations
-### Putting them together
+### Putting them together 
 ### Homework
 
 
