@@ -13,7 +13,7 @@
 -  [Fancy Button](http://codepen.io/donovanh/pen/YPMGpJ)
 -  [Cat Hover card](http://codepen.io/donovanh/pen/LEvjJg)
 -  [Change Background](http://codepen.io/donovanh/pen/WbqNwd?editors=110)
-
+- [Traffic Light](http://codepen.io/donovanh/pen/ogRRdR?editors=010)
 
 
 ## Chapter 1 - Welcome
@@ -479,7 +479,71 @@ transform: rotateZ(0);
 
 
 ## Chapter 14 -  Multiple animations
+In this chapter we’ll be looking at how we can make use of multiple sets of keyframes running at the same time.
+
 ### Traffic lights
+There are times when we want multiple animations on a page to stay in sync, but at the same time each animation has its own timing. A good example that illustrates this is traffic lights
+Here we have a simple (UK-style) traffic light pattern:
+We have three lights, each with their own pattern of being off and on. We can
+create this by giving each light their own animation.
+```css
+.red {
+animation: red 10s linear infinite;
+}
+.amber {
+animation: amber 10s linear infinite;
+}
+.green {
+animation: green 10s linear infinite;
+}
+```
+We have three animations, one for each light. Each animation lasts the same length of time so that when they loop, they won’t go out of sync. Next we need to plan the keyframes.
+
+When creating this example I found it helpful to think of the lights as a grid. The animation happens from left to right, with each light being on or off at The grid is divided up into 5 columns. This means that we can deal with “chunks” of 20% and create sets of keyframes from these chunks.
+
+```css 
+@keyframes red {
+0% {
+background: black;
+}
+2%, 40% {
+background-color: red;
+}
+42%, 100% {
+background: black;
+}
+}
+
+@keyframes amber {
+0%, 20% {
+background: black;
+}
+22%, 40% {
+background: #FF7E00;
+}
+42%, 80% {
+background: black;
+}
+82%, 100% {
+background: #FF7E00;
+}
+}
+
+@keyframes green {
+0%, 40% {
+background: black;
+}
+42%, 80% {
+background: green;
+}
+82%, 100% {
+background: black;
+}
+}
+```
+
+
+
 ### Further reading
 ### Homework
 
