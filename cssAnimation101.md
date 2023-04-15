@@ -31,7 +31,7 @@
 ### More than words alone
 - Animation can convey information efficiently and grab attention (Communication).
 - Movement in our designs gives us a more powerful way to communicate.
-- ubtle and appropriate animation can add appeal to our designs and credibility to our work.
+- Subtle and appropriate animation can add appeal to our designs and credibility to our work.
 - We’re very good at spotting movement. This is something we have evolved to do. Adding a little animation here and there can introduce some of that “illusion of life” in a very subtle way.
 
 ### What is animation on the web?
