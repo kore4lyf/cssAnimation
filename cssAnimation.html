@@ -3,8 +3,113 @@
     <head>
         <title> Animation </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <style>
+            /* ---- General ---- */
+            * {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            :focus {
+                outline: 0px;
+                outline: .5px dashed gray;
+                outline-offset: 2.5px;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            /* ---- Components ---- */
+            .btn-save {
+                animation: wiggle 1s ease infinite ;
+                -webkit-animation: wiggle 1s ease infinite ;
+                background-color: rgb(26, 26, 26);
+                border: 0px;
+                border-top: .2em solid orange;
+                border-bottom-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                color: #fff;
+                font-size: 2rem;
+                padding: 1em;
+                padding-inline: 2em;
+            }
+
+            .btn-save:hover, .btn-save:focus {
+                background-color: rgb(14, 14, 14);
+                animation-play-state: paused;
+                -webkit-animation-play-state: paused;
+            }
+
+
+            /* ---- Components ---- */
+            @keyframes wiggle {
+                0% {
+                    transform: rotate(0deg);
+                }
+                30% {
+                    transform: rotate(-20deg);
+                }
+                40% {
+                    transform: rotate(10deg);
+                }
+                50% {
+                    transform: rotate(-10deg);
+                }
+                70% {
+                    transform: rotate(5deg);
+                }
+                80% {
+                    transform: rotate(-5deg);
+                }
+                90% {
+                    transform: rotate(2deg);
+                }
+                100% {
+                    transform: rotate(-2deg);
+                }
+            }
+
+            @-webkit-keyframes wiggle {
+                0%, 10% {
+                    transform: rotateZ(0deg);
+                }
+                20% {
+                    transform: rotateZ(-15deg);
+                }
+                30% {
+                    transform: rotateZ(10deg);
+                }
+                40% {
+                    transform: rotateZ(-10deg);
+                }
+                50% {
+                    transform: rotateZ(5deg);
+                }
+                60% {
+                    transform: rotateZ(-2.5deg);
+                }
+                70%, 100% {
+                    transform: rotateZ(0deg);
+                }
+            }
+        </style>
     </head>
     <body>
+        <h1>CSS Animation </h1>
 
+        <h2>1. Save Button</h2>
+        <div class="center">
+            <button class="btn-save"> Save </button>
+        </div>
+        
+
+        <script defer>
+            
+        </script>
     </body>
 </html>
