@@ -244,10 +244,18 @@
         <br>
 
         <script defer>
+
+        /* ------ Animating List Items ------ */
             let list = document.querySelector(".list");
-            let itemContent = document.querySelector(".item-container:first-child").innerHTML;
+            let item = document.querySelector(".item-container:first-child");
+            let itemContent = item.innerHTML;
             let addItem = document.querySelector(".add-item");
             
+            //Remove the class "spread" from the initial item
+            setTimeout(() => {
+                item.classList.remove("spread");
+                
+            }, 500)
 
             //Add item to list
             let addToList = () => {
@@ -280,9 +288,9 @@
                     //Animate item by adding the spread class
                     e.target.classList.add("spread");
                     //Remove item 
-                    //setTimeout(() => {
-                     //   e.target.remove();
-                    //}, 400); 
+                    setTimeout(() => {
+                       e.target.remove();
+                    }, 400); 
                 }
             }, true);
 
