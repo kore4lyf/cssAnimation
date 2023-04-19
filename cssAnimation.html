@@ -71,7 +71,7 @@
 
             .item-container {
                 align-items: center;
-                background-color: var(--clr-list, orange);
+                background-color: var(--clr-list, #f93a54);
                 color: #fff;
                 display: flex;
                 flex-grow: 1;
@@ -114,8 +114,6 @@
                 -webkit-animation: slide-in .6s cubic-bezier(.94, 0, .31, 1.4);
                 animation-fill-mode: forwards;
                 -webkit-animation-fill-mode: forwards;
-                transition: all .5 cubic-bezier(.94, 0, .31, 1.3);
-                -webkit-transition: all .5 cubic-bezier(.94, 0, .31, 1.3);
             }
 
             .item-container:hover::before {
@@ -246,6 +244,14 @@
         <script defer>
 
         /* ------ Animating List Items ------ */
+            let itemColors = {
+                blue : "#007eff", 
+                green : "#8ae91b",
+                red : "#f93a54"
+            };
+
+            let colors = Object.keys(itemColors);
+            let totalColors = colors.length - 1;
             let list = document.querySelector(".list");
             let item = document.querySelector(".item-container:first-child");
             let itemContent = item.innerHTML;
@@ -254,9 +260,9 @@
             //Remove the class "spread" from the initial item
             setTimeout(() => {
                 item.classList.remove("spread");
-                
             }, 500)
 
+            let colorPointer = 0;
             //Add item to list
             let addToList = () => {
                 let itemContainer = document.createElement('li');
@@ -264,6 +270,16 @@
                 itemContainer.classList.add("spread");
                 itemContainer.innerHTML = itemContent;
 
+                //Change item backgroud color
+                itemContainer.style.backgroundColor = itemColors[colors[colorPointer]];
+                console.log(colorPointer);
+
+                if(colorPointer < 2){
+                    colorPointer++;
+                } else {
+                    colorPointer = 0;
+                }
+                console.log(itemColors[colors[colorPointer]]);
                 //append new item to list
                 let item = list.appendChild(itemContainer);
 
@@ -277,9 +293,10 @@
             // Add list when add item button is clicked/pressed
             addItem.addEventListener("click", addToList);
             
+
+            
             // Remove list when an item is clicked/pressed
             list.addEventListener('click', (e) => {
-                console.log(e.target);
                 if(e.target.nodeName == "LI"){
                     //Reverse animation direction on selected item
                     e.target.style.animationDirection = "reverse";
@@ -292,7 +309,7 @@
                        e.target.remove();
                     }, 400); 
                 }
-            }, true);
+            });
 
             console.log(list.nodeName);
         </script>
