@@ -82,15 +82,21 @@
                 text-align: center;
                 width: 100%;
                 z-index: 0;
+                transition: 
+                    height .5s cubic-bezier(.94, 0, .31, 1.3),
+                    width .5s cubic-bezier(.94, 0, .31, 1.3);
             }
-
+            
             .spread {
-                animation: spread .5s cubic-bezier(.94, 0, .31, 1.3);
-                -webkit-animation: spread .5s cubic-bezier(.94, 0, .31, 1.3);
-                animation-fill-mode: forwards;
-                -webkit-animation-fill-mode: forwards;
+                height: 3.5rem;
+                width: 100%;
             }
-
+            
+            .no-spread {
+                height: 0rem;
+                width: 0%;
+            }
+            
             .item-container:first-child {
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
@@ -105,13 +111,15 @@
             .list span {
                 position: relative;
                 z-index: 2;
+                transition: all .45s cubic-bezier(.94, 0, .31, 1.3);
             }
-
+            
             .slide-in {
-                animation: slide-in .6s cubic-bezier(.94, 0, .31, 1.4);
-                -webkit-animation: slide-in .6s cubic-bezier(.94, 0, .31, 1.4);
-                animation-fill-mode: forwards;
-                -webkit-animation-fill-mode: forwards;
+                top: 0px;
+            }
+            
+            .slide-out {
+                top: -35px;
             }
 
             .item-container:hover::before {
@@ -190,29 +198,6 @@
                 }
             }
 
-
-            @keyframes spread {
-                0%, 10% {
-                    height: 0rem;
-                    width: 0%;
-                }
-
-                100% {
-                    height: 3.5rem;
-                    width: 100%;
-                } 
-
-            }
-
-            @keyframes slide-in {
-                from {
-                    top: -30px;
-                }
-
-                to {
-                    top: 0px;
-                }
-            } 
         </style>
     </head>
     <body>
@@ -229,7 +214,8 @@
             <h2>Animating List Items</h2>
             <div class="center">
                 <ul class="list">
-                    <li class="item-container spread"> <span class="slide-in">List Item</span> </li>
+                    <li class="item-container"> <span class="slide-in">List Item</span> 
+                    </li>
                     <!-- <li> <span>List Item</span> </li> -->
                 </ul>
                 <button class="outline-btn add-item">+ Add item</button>
@@ -251,40 +237,45 @@
             let colors = Object.keys(itemColors);
             let totalColors = colors.length - 1;
             let list = document.querySelector(".list");
-            let item = document.querySelector(".item-container:first-child");
+            let item = document.querySelector(".item-container");
+            let itemText = document.querySelector(".item-container span");
             let itemContent = item.innerHTML;
             let addItem = document.querySelector(".add-item");
+            
             
             //Remove the class "spread" from the initial item
             setTimeout(() => {
                 item.classList.remove("spread");
-            }, 500)
+            }, 500);
 
             let colorPointer = 0;
             //Add item to list
             let addToList = () => {
                 let itemContainer = document.createElement('li');
                 itemContainer.classList.add("item-container");
-                itemContainer.classList.add("spread");
                 itemContainer.innerHTML = itemContent;
 
                 //Change item backgroud color
                 itemContainer.style.backgroundColor = itemColors[colors[colorPointer]];
-                console.log(colorPointer);
 
+                //Switch Item Color
                 if(colorPointer < 2){
                     colorPointer++;
                 } else {
                     colorPointer = 0;
                 }
-                console.log(itemColors[colors[colorPointer]]);
+
                 //append new item to list
                 let item = list.appendChild(itemContainer);
-
-                //Remove spread class from item
-                let removeSpread = setTimeout(() => {
-                    item.classList.remove("spread");
-                }, 500);
+                let itemText = item.querySelector('span');
+                item.classList.add("no-spread");
+                itemText.classList.add("slide-out");
+                
+                
+                setTimeout(() => {
+                item.classList.remove("no-spread");
+                itemText.classList.remove("slide-out");
+                }, 100);
                 
             }
 
@@ -296,20 +287,16 @@
             // Remove list when an item is clicked/pressed
             list.addEventListener('click', (e) => {
                 if(e.target.nodeName == "LI"){
-                    //Reverse animation direction on selected item
-                    e.target.style.animationDirection = "reverse";
-                    e.target.style.webkitAnimationDirection = "reverse";
-
                     //Animate item by adding the spread class
-                    e.target.classList.add("spread");
+                    e.target.classList.add("no-spread");
+                    e.target.querySelector("span").classList.add('slide-out');
                     //Remove item 
                     setTimeout(() => {
                        e.target.remove();
                     }, 400); 
                 }
             });
-
-            console.log(list.nodeName);
+            
         </script>
     </body>
 </html>
